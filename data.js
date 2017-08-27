@@ -1,4 +1,4 @@
-// Define your data array here
+
 var data = [
 {"tenant":"🍤🍤🍤","startDate":"08/16/2017","endDate":"11/16/2017"},
 {"tenant":"李","startDate":"08/10/2017","endDate":"01/10/2018"},
