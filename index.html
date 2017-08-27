@@ -1,0 +1,61 @@
+<html>
+<meta charset="utf-8">
+
+<head>
+  <title>209 Sublease</title>
+</head>
+
+
+<header>
+  <h1 style="text-align:center; letter-spacing:0.1em;">610 E Stoughton St, Apt209</h1>
+
+<!-- 
+    <span id='day'> day to string </span>
+    <br/>
+    <span id='diff_days'> diff of days </span>
+    <span id='between_days'> between of days </span>
+    
+    <span id='num_days'> num of days </span>
+    <span id='num_tenants'> num of tenants </span>
+ -->
+</header>
+
+
+
+<body>
+
+  <div id="chart"></div>
+
+  <script src="https://cdn.jsdelivr.net/d3js/4.8.0/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
+
+
+  <!-- <script src="d3.js"></script>
+  <script src="moment.js"></script> -->
+
+  <script src="domains.js"></script>
+  <script src="data.js"></script>
+  <script src="viz.js"></script>
+
+<!-- 
+  <script type="text/javascript">
+  // Year
+  // Month 0:Jan 1:Feb 2:Mar ...
+  // Day 1, 2, ...
+    document.getElementById("day").innerHTML = moment([2017, 1, 1]).toString();
+
+    var tmpStartDate = moment("02/28/2017", 'MM/DD/YYYY'); //Feb 28
+    var tmpEndDate = moment("03/01/2017", 'MM/DD/YYYY'); //March 1
+    document.getElementById("diff_days").innerHTML = tmpEndDate.diff(tmpStartDate, 'days');
+
+    var fromDate = moment([2017, 1, 28]); //from Feb 28
+    var toDate = moment([2017, 2, 2]); //to March 2
+    var date = moment([2017, 2, 2]); //Feb
+    document.getElementById("between_days").innerHTML = date.isBetween(fromDate, toDate, 'days', true);
+
+    document.getElementById("num_days").innerHTML = dates.length;
+    document.getElementById("num_tenants").innerHTML = tenants.length;
+  </script>
+ -->
+
+</body>
