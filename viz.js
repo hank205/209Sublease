@@ -1,7 +1,7 @@
 /* d3.js boilerplate */
 var margin = { top: 50, right: 0, bottom: 100, left: 150 },
     width = 1250 - margin.left - margin.right,
-    height = 12000 - margin.top - margin.bottom;
+    height = 10000 - margin.top - margin.bottom;
 
 
 var nav = d3.select("#chart")
@@ -58,7 +58,7 @@ svg.selectAll()
    .style("text-anchor","end");
 
 
-/* Now draw the lines */
+/* Now draw the horizontal lines */
 svg.selectAll()
    .data( dates )
    .enter()
@@ -76,12 +76,22 @@ svg.selectAll()
    .enter()
    .append("rect")
    .attr("x", function (d) { return x(d.tenant); } )
-   .attr("y", function (d) { return y(d.startDate) - 10; } )
+   .attr("y", function (d) {
+      const tenantStartDate = moment(d.startDate, 'MM/DD/YYYY');
+      const domainStartDate = moment(dates[0], 'MM/DD/YYYY');
+      const diffDays = tenantStartDate.diff(domainStartDate, 'days');
+      if(diffDays <= 0)
+        return 0;
+      return y(d.startDate) - 10;} )
    .attr("width",function(d){return 30;} )
    .attr("height",function(d){
-      const tmpStartDate = moment(d.startDate, 'MM/DD/YYYY');
-      const tmpEndDate = moment(d.endDate, 'MM/DD/YYYY');
-      var diffDays = tmpEndDate.diff(tmpStartDate, 'days') + 1;
+      var tenantStartDate = moment(d.startDate, 'MM/DD/YYYY');
+      const domainStartDate = moment(dates[0], 'MM/DD/YYYY');
+      const diffDomainDays = tenantStartDate.diff(domainStartDate, 'days');
+      if(diffDomainDays <= 0)
+        tenantStartDate = domainStartDate;
+      var tenantEndDate = moment(d.endDate, 'MM/DD/YYYY');
+      var diffDays = tenantEndDate.diff(tenantStartDate, 'days') + 1;
       return 10 + (diffDays-1) * (height/dates.length); } )
    .style("fill",function(d){ return "#00ff00"; });
 
